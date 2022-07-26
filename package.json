@@ -39,13 +39,15 @@
     "./*": {
       "types": "./dts/*.d.ts",
       "node": {
-        "import": "./mjs/*.mjs"
+        "import": "./mjs/*.mjs",
+        "require": "./cjs/*.cjs"
       }
     },
     ".": {
       "types": "./dts/index.d.ts",
       "node": {
-        "import": "./mjs/index.mjs"
+        "import": "./mjs/index.mjs",
+        "require": "./cjs/index.cjs"
       }
     }
   },
