@@ -1,0 +1,58 @@
+{
+  "name": "packemon-cjs-issue",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "./cjs/index.cjs",
+  "repository": "azu/packemon-cjs-issue",
+  "scripts": {
+    "build": "packemon pack --addEngines --addExports --declaration --declarationConfig tsconfig.json"
+  },
+  "author": "azu",
+  "license": "MIT",
+  "devDependencies": {
+    "packemon": "^2.3.1",
+    "typescript": "^4.7.4"
+  },
+  "packemon": [
+    {
+      "inputs": {
+        "index": "./src/index.ts"
+      },
+      "platform": "node",
+      "format": "cjs"
+    },
+    {
+      "inputs": {
+        "node": "./src/index.ts"
+      },
+      "platform": "node",
+      "format": "mjs"
+    }
+  ],
+  "types": "./dts/index.d.ts",
+  "engines": {
+    "node": ">=14.15.0",
+    "npm": ">=6.14.0"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./*": {
+      "types": "./dts/*.d.ts",
+      "node": {
+        "import": "./mjs/*.mjs"
+      }
+    },
+    ".": {
+      "types": "./dts/index.d.ts",
+      "node": {
+        "import": "./mjs/index.mjs"
+      }
+    }
+  },
+  "files": [
+    "cjs/**/*.{cjs,mjs,map}",
+    "dts/**/*.d.ts",
+    "mjs/**/*.{mjs,map}",
+    "src/**/*.{ts,tsx,json}"
+  ]
+}
